@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&display=swap');
+
+@import './variables';
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-size: 18px;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+// navbar
+
+.navbar {
+    
+    position: fixed;
+    width: 100%;
+    top: 0;
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    padding: 40px 50px;
+    color: white;
+    
+    .navWrapper {
+        @include flex;
+        justify-content: space-between;
+        position: relative;
+
+        li {
+            font-size: 17px;
+            list-style: none;
+            display: inline-block;
+            margin-right: 60px;
+        }
+        
+        .lastli {
+            margin-right: 10px;
+            padding: 10px 15px;
+            color: black;
+            background: white;
+            border-radius: 30px;
+        }
+    
+        img {
+            cursor: pointer;
+            display: none;
+        }
+
+        .triangle {
+            display: none;
+        }
+
+        @media (max-width: $mobile)  {
+            .menu {
+                display: none;
+                position: absolute;
+                width: calc(100vw - 100px);
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 999;
+                height: 230px;
+                background: white;
+                color: grey;
+                
+
+                li {
+                    display: list-item;
+                    text-align: center;
+                    margin: 20px 0;
+
+                }
+
+                .lastli {
+                    background: #fbd80a;
+                    width: 120px;
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                .triangle {
+                    display: block;
+                    z-index: 9;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 0;
+                    width: 0;
+                    border: 15px solid white;
+                    border-top: 15px solid rgba(0, 0, 0, 0);
+                    border-left: 15px solid rgba(0, 0, 0, 0);
+                    transform: translateY(-100%);
+                }
+            }
+
+            .menu.active {
+                display: block;
+            }
+
+            img {
+                display: block;
+            }
+        }
+    }   
+}
+
+//home
+
+.home {
+    background: url(../images//desktop/image-header.jpg) no-repeat center;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    // @include flex;
+    // align-items: flex-start;
+    .slogan {
+        margin: auto;
+        font-size: 50px;
+        font-family: 'Fraunces', sans-serif;
+        font-weight: 700;
+        padding-top: 30vh;
+        color: white;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10vh;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        cursor: pointer;
+    }
+
+ 
+}
+
+
+//grid
+.grid {
+    font-family: 'Fraunces', sans-serif;
+    
+    
+    .row {
+        @include flex;
+        flex-wrap: wrap;
+        width: 100%;
+        min-height: 600px;
+        
+
+        .column {
+            height: 100%;            
+            width: 50%;            
+            
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+        }
+
+        .column.graphic {
+            background: url('../images/desktop/image-graphic-design.jpg') no-repeat center;
+            background-size: cover;
+
+        }
+
+        .column.photo {
+            background: url('../images/desktop/image-photography.jpg') no-repeat center;
+            background-size: cover;
+
+        }
+
+        .flexWrapper {
+            width: 60%;
+        }
+
+        .column.text {
+            @include flex;
+            
+
+
+            .title {
+                font-size: 40px;
+                font-weight: 700;
+                margin-bottom: 25px;
+            }
+
+            .para {
+                font-size: 15px;
+                color: grey;
+                line-height: 25px;
+                margin-bottom: 35px;
+
+            }
+
+            a {
+                font-size: 20;
+                font-weight: 900;
+                color: black;
+                @include highlightBottom(hsl(51, 100%, 49%));
+                position: relative;
+                z-index: -1;
+                
+            }
+
+            a.secondA {
+                @include highlightBottom(hsl(7, 100%, 70%));
+
+            }
+
+
+            
+        }
+
+        .column.textBottom {
+            @include flex;
+            align-items: flex-end;
+            padding-bottom: 50px;
+            color: hsl(212, 27%, 19%);
+            text-align: center;
+
+            .flexWrapper.tangerine {
+                width: 50%;
+            }
+
+            .title {
+                font-size: 30px;
+                margin-bottom: 25px;
+            }
+
+            .para {
+                font-size: 15px;
+                line-height: 25px;
+                margin-bottom: 35px;
+                color: grey;
+
+            }
+
+            .para.second {
+                // color: hsl(212, 27%, 19%);
+                color: grey;
+            }
+
+            
+        }
+
+
+    @media (max-width: $mobile)  {
+        .column {
+            width: 100%;
+            height: 600px;
+        }
+    }
+
+
+
+
+    }
+}
+
+
+.testimonial {
+    font-family: 'Fraunces', sans-serif;
+    padding-block: 150px;
+    
+    .sectionHeader {
+        @include title;
+        text-align: center;
+        color: grey; 
+        letter-spacing: 7px;
+        margin-bottom: 80px;
+    }
+
+    .testimonialCards {
+        @include flex;
+        padding-inline: 150px;
+        justify-content: space-around;
+
+
+
+        .card {
+            width: 30%;
+            text-align: center;
+
+
+            img {
+                height: 80px;
+                width: 80px;
+                display: block;
+                margin: auto;
+                border-radius: 50%;
+                margin-bottom: 80px;
+            }
+
+            .quote {
+                font-size: 15px;
+                line-height: 30px;
+                color: rgba(0, 0, 0, 0.7);
+                margin-bottom: 100px;
+                
+            }
+
+            .name {
+                margin-bottom: 30px;
+            }
+
+            .position {
+                @include para;
+            }
+
+        }
+
+        @media (max-width: $mobile)  {
+
+        padding-inline: 50px;
+
+            .card {
+                width: 100%;
+                margin-bottom: 150px;
+
+                img {
+                    margin-bottom: 50px;
+                }
+    
+                .quote {
+                    
+                    margin-bottom: 60px;
+                    
+                }
+    
+                .name {
+                    margin-bottom: 20px;
+                }
+    
+            }
+
+           
+        }
+
+    }
+    
+
+}
+
+
+.fourPics {
+    font-family: 'Fraunces', sans-serif;
+    
+    @include flex;
+
+
+    img {
+        width: 25%;
+        object-fit: cover;
+    }
+
+    @media (max-width: $mobile)  {
+        img {
+            width: 50%;
+        }
+    }
+
+    
+
+}
+
+.bottombar {
+    font-family: 'Fraunces', sans-serif;
+
+    text-align: center;
+    padding: 50px 0;
+    background: #92d6c5;
+
+    .webname {
+        font-size: 30px;
+        font-weight: 900;
+        margin-bottom: 50px;
+        color: #307666;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 15px;
+        margin-bottom: 100px;
+        color: #569989;
+
+    }
+
+    img {
+        margin: 0 10px;
+        
+    }
+
+
+}
