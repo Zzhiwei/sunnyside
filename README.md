@@ -5,7 +5,7 @@ This is a solution to the [Sunnyside agency landing page challenge on Frontend M
 
 # note
 
-As this was done mainly to practise, the exactness of some details are left out such as fontsize, letter-spacing, or other details as such. Hover states were also omitted.   
+As this was done mainly to practise, the exactness of some details are left out such as fontsize, letter-spacing, or other details as such. Hover effects were omitted with hover state being at all times.    
 
 # Screenshots
 
