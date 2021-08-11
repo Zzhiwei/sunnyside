@@ -1,5 +1,5 @@
 
-# Solution is done with the sole purpose of practising CSS thus html layout elements are not used!
+# Solution is done with the sole purpose of practising CSS thus html semantics elements are not used!
 
 # Frontend Mentor - Sunnyside agency landing page solution
 
